@@ -73,9 +73,9 @@ This tutorial will cover the following:
 
 Let's Encrypt automatically performs Domain Validation (DV) using a series of *challenges*. The Certificate Authority (CA) uses challenges to verify the authenticity of your computer's domain. Once your Linode has been validated, the CA will issue SSL certificates to you.
 
-1.  Run Let's Encrypt with the `--standalone` parameter. For each additional domain name requiring a certificate, add `-d example.com` to the end of the command.
+1.  If you run Let's Encrypt with the `--standalone` parameter, you must turn your webserver off first.  Better is to use the `--webroot` option and include `--webroot-path`. For each additional domain name requiring a certificate, add `-d example.com` to the end of the command.
 
-        sudo -H ./letsencrypt-auto certonly --standalone -d example.com -d www.example.com
+        sudo -H ./letsencrypt-auto certonly --webroot --webroot-path /path/to/your/docroot -d example.com -d www.example.com
 
     {: .note}
     >
